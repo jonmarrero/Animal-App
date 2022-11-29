@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+
+  <body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+      <div>
+        <form action="/animals/<%= animal._id %>?_method=PUT" method="post">
+          <fieldset>
+            <legend>Edit a <%= animal.name %></legend>
+            <label>
+                Species:<input
+                  type="text"
+                  name="species"
+                  placeholder="enter animal name"
+                />
+              </label>
+              <label>
+                Loaction:<input
+                  type="text"
+                  name="location"
+                  placeholder="enter animal location"
+                />
+              </label>
+              <label>
+                  lifeExpectancy:<input
+                    type="text"
+                    name="lifeExpectancy"
+                    placeholder="enter animal lifeExpectancy"
+                  />
+                </label>
+              <label>
+                Extinct:<input type="checkbox" name="extinct" <%= animal.extinct ? "checked" : "" %> />
+              </label>
+          </fieldset>
+          <input type="submit" value="Update <%= animal.name %>" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
